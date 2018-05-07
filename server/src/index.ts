@@ -3,6 +3,7 @@ import { Action, BadRequestError, useKoaServer } from 'routing-controllers'
 import setupDb from './db'
 import UserController from './users/controller'
 import LoginController from './logins/controller'
+import BatchController from './classes/controller'
 import { verify } from './jwt'
 import User from './users/entity'
 import * as Koa from 'koa'
@@ -20,7 +21,8 @@ useKoaServer(app, {
   cors: true,
   controllers: [
     UserController,
-    LoginController
+    LoginController,
+    BatchController
   ],
   authorizationChecker: (action: Action) => {
     const header: string = action.request.headers.authorization

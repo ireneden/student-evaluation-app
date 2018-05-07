@@ -5,9 +5,6 @@ import { IsDate } from 'class-validator';
 @Entity()
 export default class Batch extends BaseEntity {
 
-    static removeById(arg0: any): any {
-        throw new Error("Method not implemented.");
-    }
     @PrimaryGeneratedColumn()
     id?: number
 
@@ -15,12 +12,11 @@ export default class Batch extends BaseEntity {
     batchNumber: Number
 
     @Column('integer', {default: 1, nullable: true})
-    userId: number
+    userId: Number
 
-    @IsDate()
-    @Column({default: 1, nullable: true})
-    startDate: Date;
-
-    @Column({default: 1, nullable: true})
-    endDate: Date
+    @Column('integer', {default: 1, nullable: true})
+    startDate: Number
+    
+    @Column('integer', {default: 1, nullable: true})
+    endDate: Number
 }
