@@ -5,9 +5,6 @@ import SignupPage from './components/signup/SignupPage'
 import LogoutPage from './components/logout/LogoutPage'
 import ClassesPage from './containers/ClassesPage'
 import TopBar from './components/layout/TopBar'
-// import GamesList from './components/games/GamesList'
-// import GameDetails from './components/games/GameDetails'
-// import LogoutPage from './components/logout/LogoutPage'
 import './App.css'
 
 
@@ -25,7 +22,7 @@ class App extends Component {
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/classes" component={ClassesPage} />
-            <Route exact path="/" render={ () => <Redirect to="/login" /> } />
+            <Route exact path="/" render={ () => <Redirect to="/classes" /> } />
           </main>
         </div>
       </Router>

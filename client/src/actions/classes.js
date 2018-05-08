@@ -31,7 +31,7 @@ const newClass = batch => ({
 
     request
       .get(`${baseUrl}/classes`)
-      .set('Authorization', `Bearer ${jwt}`)
+    //   .set('Authorization', `Bearer ${jwt}`)
       .then(result => dispatch({
           type: GET_CLASSES,
           payload: result.body
