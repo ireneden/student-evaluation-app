@@ -8,17 +8,22 @@ export default class UserController {
 
 // post a new teacher
 @Post('/users')
-  async signup(
-    @Body() data: User) 
-    {
-    const {password, ...rest} = data
-    const entity = User.create(rest)
-    await entity.setPassword(password)
+async signup(
+  @Body() data: User
+  ) {
+  const {password, ...rest} = data
+  const entity = User.create(rest)
+  await entity.setPassword(password)
 
-    const user = await entity.save()
+  const user = await entity.save()
 
-    return user
-    }
+  io.emit('action', {
+    type: 'ADD_USER',
+    payload: entity
+  })
+
+  return user
+}
 
   @Get('/users/:id([0-9]+)')
   getUser(
@@ -26,7 +31,6 @@ export default class UserController {
   ) {
     return User.findOne(id)
   }
-
 
   @Get('/users')
   allUsers() {

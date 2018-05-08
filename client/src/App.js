@@ -25,7 +25,7 @@ class App extends Component {
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/classes" component={ClassesPage} />
-            <Route exact path="/" render={ () => <Redirect to="/classes" /> } />
+            <Route exact path="/" render={ () => <Redirect to="/login" /> } />
           </main>
         </div>
       </Router>

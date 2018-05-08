@@ -23,7 +23,7 @@ export const logout = () => ({
 
 export const login = (email, password) => (dispatch) =>
 	request
-		.post(`${baseUrl}/login`)
+		.post(`${baseUrl}/logins`)
     .send({email, password})
     .then(result => {
       dispatch({

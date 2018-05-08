@@ -15,7 +15,6 @@ export default class SignupForm extends PureComponent {
 
     this.setState({
       [name]: value,
-			teacher: event.target.checked
     })
 	}
 

@@ -33,11 +33,11 @@ const TopBar = (props) => {
           <Button color="inherit" onClick={() => history.push('/signup')}>Sign up</Button>
         }
         {
-          location.pathname.indexOf('quizzes/') > 0 &&
-          <Button color="inherit" onClick={() => history.push('/quizzes')}>All Quizzes</Button>
+          location.pathname.indexOf('classes/') > 0 &&
+          <Button color="inherit" onClick={() => history.push('/classes')}>All Classes</Button>
         }
         {
-          /login$/.test(location.pathname) &&
+          /classes$/.test(location.pathname) &&
           <Button color="inherit" onClick={() => history.push('/logout')}>Log out</Button>
         }
       </Toolbar>

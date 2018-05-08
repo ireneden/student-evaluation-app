@@ -1,31 +1,3 @@
-// import React, {PureComponent} from 'react'
-// import {connect} from 'react-redux'
-// // import AddClassButton from './AddClassButton'
-// import ClassForm from './ClassForm'
-// import Paper from 'material-ui/Paper'
-
-// class ClassesPage extends PureComponent {
-
-
-//     render() {
-//         const {classes} = this.props
-
-//         return(
-//             <Paper className="outer-paper">
-//                 <ClassForm/>
-//             </Paper>  
-//         )
-//     }
-// }
-
-// const mapStateToProps = function (state) {
-//     return {
-//         classes: state.classes
-//     }
-//   }
-
-// export default connect (mapStateToProps)(ClassesPage);
-
 
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
