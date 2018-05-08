@@ -23,17 +23,6 @@ export default class StudentController {
         return studentsByClass 
     }
 
-    // @Post('/students')
-    // @HttpCode(201)
-    // async addStudent(
-    //     @Body() student: Student
-    // ) {
-    //     const { ...info } = student
-    //     const entity = Student.create(info)
-    //     return entity.save()
-    //   }
-
-
     @Post('/students')
     @HttpCode(201)
     async addStudent(
