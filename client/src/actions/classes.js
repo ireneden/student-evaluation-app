@@ -5,7 +5,7 @@ const baseUrl = 'http://localhost:4000'
 
 export const ADD_CLASS = 'ADD_CLASS'
 export const GET_CLASSES = 'GET_CLASSES'
-// export const GET_DETAILED_CLASS = 'GET_DETAILED_CLASS'
+export const GET_DETAILED_CLASS = 'GET_DETAILED_CLASS'
 
 
 const newClass = batch => ({
@@ -31,10 +31,21 @@ const newClass = batch => ({
 
     request
       .get(`${baseUrl}/classes`)
-    //   .set('Authorization', `Bearer ${jwt}`)
       .then(result => dispatch({
           type: GET_CLASSES,
           payload: result.body
         }))
+      .catch(err => console.error(err))
+  }
+
+  export const getClass = (id) => (dispatch) => {
+    request
+    .get(`${baseUrl}/classes/${id}`)
+      .then(result => {
+        dispatch({
+          type: GET_DETAILED_CLASS,
+      payload: result.body
+        })
+      })
       .catch(err => console.error(err))
   }

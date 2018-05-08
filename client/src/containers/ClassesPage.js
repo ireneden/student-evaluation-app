@@ -1,7 +1,6 @@
 
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {addClass} from '../actions/classes'
 import {getClasses} from '../actions/classes'
 import {Link} from 'react-router-dom'
 import ClassForm from './ClassForm'

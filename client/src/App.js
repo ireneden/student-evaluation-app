@@ -4,6 +4,7 @@ import LoginPage from './components/login/LoginPage'
 import SignupPage from './components/signup/SignupPage'
 import LogoutPage from './components/logout/LogoutPage'
 import ClassesPage from './containers/ClassesPage'
+import SingleClassPage from './containers/SingleClassPage'
 import TopBar from './components/layout/TopBar'
 import './App.css'
 
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/classes" component={ClassesPage} />
+            <Route exact path="/classes/:id" component={SingleClassPage} />
             <Route exact path="/" render={ () => <Redirect to="/classes" /> } />
           </main>
         </div>
