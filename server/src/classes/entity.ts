@@ -11,12 +11,9 @@ export default class Batch extends BaseEntity {
     @Column('text', { nullable: false })
     batchNumber: Number
 
-    @Column('integer', {default: 1, nullable: true})
-    userId: Number
-
-    @Column('integer', {default: 1, nullable: true})
-    startDate: Number
+    @Column('date', { nullable: false })
+    startDate: Date
     
-    @Column('integer', {default: 1, nullable: true})
-    endDate: Number
+    @Column('date', { nullable: false })
+    endDate: Date
 }

@@ -23,7 +23,7 @@ export default class User extends BaseEntity {
   email: string
 
   @IsString()
-  @Column('text', {nullable: false})
+//   @Column('text', {nullable: false})
   @Exclude({ toPlainOnly: true })
   password: string
 

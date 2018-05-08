@@ -17,15 +17,9 @@ export default class UserController {
 
     const user = await entity.save()
 
-    io.emit('action', {
-      type: 'ADD_USER',
-      payload: entity
-    })
-
     return user
     }
 
-@Authorized()
   @Get('/users/:id([0-9]+)')
   getUser(
     @Param('id') id: number
@@ -33,7 +27,7 @@ export default class UserController {
     return User.findOne(id)
   }
 
-@Authorized()
+
   @Get('/users')
   allUsers() {
     return User.find()
