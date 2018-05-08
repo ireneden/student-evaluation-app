@@ -7,7 +7,7 @@ export default class BatchController {
 
     @Post('/classes')
     @HttpCode(201)
-    async createBatch(
+    async addBatch(
         @Body() batch: Batch
     ) {
         const entity = await batch.save()

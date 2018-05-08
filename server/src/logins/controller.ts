@@ -1,6 +1,5 @@
 import { IsString } from 'class-validator'
 import { JsonController, Post, Body, BadRequestError } from 'routing-controllers'
-import { sign } from '../jwt'
 import User from '../users/entity'
 
 class AuthenticatePayload {
@@ -14,7 +13,7 @@ class AuthenticatePayload {
 @JsonController()
 export default class LoginController {
 
-  @Post('/logins')
+  @Post('/login')
   async authenticate(
     @Body() { email, password }: AuthenticatePayload
   ) {

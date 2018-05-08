@@ -15,7 +15,7 @@ export default class StudentController {
 
     @Post('/students')
     @HttpCode(201)
-    async createStudent(
+    async addStudent(
         @Body() student: Student
     ) {
         const { ...info } = student
