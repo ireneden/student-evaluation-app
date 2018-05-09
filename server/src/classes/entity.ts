@@ -18,3 +18,5 @@ export default class Batch extends BaseEntity {
     @Column('date', { nullable: false })
     endDate: Date
 }
+
+//commen
