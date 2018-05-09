@@ -8,7 +8,7 @@ export default class Batch extends BaseEntity {
     @PrimaryGeneratedColumn()
     id?: number
 
-    @Unique(["batchNumber"])
+    // @Unique(["batchNumber"])
     @Column('text', { nullable: false })
     batchNumber?: Number
 
@@ -18,3 +18,5 @@ export default class Batch extends BaseEntity {
     @Column('date', { nullable: false })
     endDate: Date
 }
+
+//commen

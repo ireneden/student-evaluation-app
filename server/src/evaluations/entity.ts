@@ -13,8 +13,8 @@ export default class Evaluation extends BaseEntity {
   @Column('text', { nullable: false })
   batchId: number
 
-  @Column('text', { nullable: false })
-  date: Date
+  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})
+  time: string;
 
   @Column('text', { nullable: false })
   evaluation: string

@@ -11,20 +11,22 @@ const studentsArray = [
 ]
 
 export function chooseRandomStudent(studentsArray) {
-const greenStudentsOnly = studentsArray.filter(student => student.evaluation === 'green')
-const yellowStudentsOnly = studentsArray.filter(student =>student.evaluation === 'yellow')
-const redStudentsOnly = studentsArray.filter(student => student.evaluation === 'red')
+  const greenStudentsOnly = studentsArray.filter(student => student.evaluation === 'green')
+  const yellowStudentsOnly = studentsArray.filter(student =>student.evaluation === 'yellow')
+  const redStudentsOnly = studentsArray.filter(student => student.evaluation === 'red')
 
-const greenWeight = 0.19
-const yellowWeight = 0.28
-const redWeight = 0.53
+  const greenWeight = 0.19
+  const yellowWeight = 0.28
+  const redWeight = 0.53
   
-const randomNumber = Math.random()
-if (randomNumber <= greenWeight) {
+  const randomNumber = Math.random()
+  if (randomNumber <= greenWeight) {
   return greenStudentsOnly[Math.floor(Math.random() * greenStudentsOnly.length)]
-} else if (randomNumber < greenWeight + yellowWeight) {
+  } else if (randomNumber < greenWeight + yellowWeight) {
   return yellowStudentsOnly[Math.floor(Math.random() * yellowStudentsOnly.length)]
-} else {
+  } else {
   return redStudentsOnly[Math.floor(Math.random() * redStudentsOnly.length)]
+  }
 }
-}
+
+//commen
