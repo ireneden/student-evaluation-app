@@ -23,7 +23,6 @@ class AddEvaluationForm extends PureComponent {
       }
 
       render() {
-        const initialValues = this.props.initialValues || {}
 
         return(
             <form onSubmit={this.handleSubmit}>
@@ -31,24 +30,26 @@ class AddEvaluationForm extends PureComponent {
                     id='date'
                     name='date'
                     label='Date'
-                    value={this.state.date || initialValues.date }
+                    value={this.state.date || '' }
                     onChange={this.handleChange}
                 />
-                <TextField
-                    id='evaluation'
-                    name='evaluation'
-                    label='Add evaluation'
-                    value={this.state.evaluation || initialValues.evaluation || ''}
-                    onChange={this.handleChange}
-                />
-                <p> (please only insert "green", "yellow" or "red" as evaluation <span>😉</span> )</p>
+
                 <TextField
                     id='remarks'
                     name='remarks'
                     label='Remarks'
-                    value={this.state.remarks || initialValues.remarks || ''}
+                    value={this.state.remarks || ''}
                     onChange={this.handleChange}
                 />
+
+                <label>
+                    Evaluation: 
+                    <select onChange={this.handleChange}>
+                    <option value="Green" name='evaluation'>Green</option>
+                    <option value="Yellow" name='evaluation'>Yellow</option>
+                    <option value="Red" name='evaluation'>Red</option>
+                    </select>
+                </label>
                 <Button
                     type='submit'
                     color="secondary"
@@ -61,7 +62,13 @@ class AddEvaluationForm extends PureComponent {
         )
     }
 }
-
+{/* <TextField
+                    id='evaluation'
+                    name='evaluation'
+                    label='Add evaluation'
+                    value={this.state.evaluation || ''}
+                    onChange={this.handleChange}
+                /> */}
 
 const mapStateToProps = function (state) {
 	return {

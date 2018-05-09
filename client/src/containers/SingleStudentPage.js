@@ -15,18 +15,20 @@ class SingleStudentPage extends PureComponent {
     }
 
     render(){
-        const {evaluations, student} = this.props
+        const {evaluations, student, batch} = this.props
 
         return(
+            <div>
             <Paper className="outer-paper">
             <h1>Evaluations for student # {this.props.match.params.id}</h1>
-            <AddEvaluationForm studentId={this.props.match.params.id}/>
-            { evaluations.map(evaluation =>
-                <div className= "evaluations">
-                <h2>Evaluation date: {evaluation.date} Evaluation: {evaluation.evaluation}</h2>
+            <AddEvaluationForm studentId={this.props.match.params.id} batchId={this.props.batchId} />
+            { evaluations.map(score =>
+                <div className= "evaluations" >
+                <h2>Evaluation date: {score.time} Evaluation: {score.evaluation}</h2>
                 </div>
             )}
             </Paper>
+            </div>
         )
     }
 }

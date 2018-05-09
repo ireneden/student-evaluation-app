@@ -26,6 +26,7 @@ class SingleClassPage extends PureComponent {
     render(){
         const {batch, students} = this.props
         return(
+            <div>
             <Paper className="outer-paper">
             <h2>Add a new student</h2>
             <AddStudentForm batchId={this.props.match.params.id}/>
@@ -44,6 +45,7 @@ class SingleClassPage extends PureComponent {
                 </div>
             )}
             </Paper>
+            </div>
         )
     }
 }

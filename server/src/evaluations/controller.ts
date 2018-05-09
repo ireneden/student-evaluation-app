@@ -1,4 +1,4 @@
-import { Post, Param, HttpCode, Get, Body, JsonController, Patch, NotFoundError, Delete} from 'routing-controllers'
+import { Post, Param, HttpCode, Get, Body, JsonController, Patch, NotFoundError, Delete, Put} from 'routing-controllers'
 import Evaluation from './entity';
 
 @JsonController()
@@ -14,7 +14,7 @@ export default class EvaluationController {
         return entity 
     }
 
-    @Patch('/evaluations/:id([0-9]+)')
+    @Put('/evaluations/:id([0-9]+)')
     async updateEvaluation(
         @Param('id') id: number,
         @Body() update 
@@ -37,6 +37,12 @@ export default class EvaluationController {
         let evaluationsByClass = Evaluation.find( {batchId: batchId} ) 
 
         return evaluationsByClass 
+    }
+
+    @Get('/evaluations')
+    @HttpCode(201)
+    getEvaluations(){
+        return Evaluation.find()
     }
 
     @Get('/evaluationsbystudent/:id([0-9]+)')
