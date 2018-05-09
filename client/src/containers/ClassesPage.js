@@ -19,11 +19,12 @@ class ClassesPage extends PureComponent {
         return(
             <Paper className="outer-paper">
             <h2>Add a new class</h2>
+            <p>Please make sure to insert the date in MM/DD/YYYY or MM-DD-YYYY format</p>
             <ClassForm />
             <h2>All classes: </h2>
             { classes.map(classes =>
                 <div className= "classPage">
-                <Link to={`/classes/${classes.id}`}><h3>BATCH NUMBER {classes.batchNumber}  -   Start Date: {classes.startDate}  End Date: {classes.endDate}</h3></Link>
+                <Link to={`/classes/${classes.batchNumber}`}><h3>BATCH NUMBER {classes.batchNumber}  -   Start Date: {classes.startDate}  End Date: {classes.endDate}</h3></Link>
                 </div>
             )}
             </Paper>

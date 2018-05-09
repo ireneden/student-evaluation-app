@@ -38,9 +38,9 @@ const newClass = batch => ({
       .catch(err => console.error(err))
   }
 
-  export const getClass = (id) => (dispatch) => {
+  export const getClass = (batchNumber) => (dispatch) => {
     request
-    .get(`${baseUrl}/classes/${id}`)
+    .get(`${baseUrl}/classes/${batchNumber}`)
       .then(result => {
         dispatch({
           type: GET_DETAILED_CLASS,
