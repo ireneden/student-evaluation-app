@@ -26,8 +26,6 @@ const newClass = batch => ({
   }
 
   export const getClasses = () => (dispatch, getState) => {
-   const state = getState()
-   const jwt = state.currentUser.jwt
 
     request
       .get(`${baseUrl}/classes`)
@@ -38,13 +36,13 @@ const newClass = batch => ({
       .catch(err => console.error(err))
   }
 
-  export const getClass = (batchNumber) => (dispatch) => {
+  export const getClass = (id) => (dispatch) => {
     request
-    .get(`${baseUrl}/classes/${batchNumber}`)
+    .get(`${baseUrl}/classes/${id}`)
       .then(result => {
         dispatch({
           type: GET_DETAILED_CLASS,
-      payload: result.body
+          payload: result.body
         })
       })
       .catch(err => console.error(err))

@@ -15,7 +15,7 @@ export default class StudentController {
 
     @Get('/studentsbyclass/:id([0-9]+)')
     @HttpCode(201)
-    getClassStudents(
+    getStudentsByClass(
         @Param('id') batchId: number
     ) {
         let studentsByClass = Student.find( {batchId: batchId} ) 
