@@ -30,7 +30,7 @@ class SingleClassPage extends PureComponent {
             <h2>Add a new student</h2>
             <AddStudentForm batchId={this.props.match.params.id}/>
             <h2>Students of batch # {this.props.match.params.id} </h2>
-            { students.map(student =>
+            {students.map(student =>
                 <div className="students-list">
                 <Link to={`/students/${student.id}`}><h3>Student name: {student.name}</h3></Link>
                 <h4>Picture (url): {student.picture} - Last evaluation: {student.latestEvaluation}</h4>

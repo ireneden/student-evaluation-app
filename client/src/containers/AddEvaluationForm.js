@@ -6,55 +6,54 @@ import {addNewEvaluation} from '../actions/evaluations'
 
 
 class AddEvaluationForm extends PureComponent {
-
     state = {}
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        this.props.addNewEvaluation(this.state)
-    }
-
-
-    handleChange = (e) => {
-        const {name, value} = e.target
-
+    handleChange = (event) => {
+        const {name, value} =event.target
         this.setState({
-            batch: this.props.batch.id,
-            students: this.props.students.id,
+            batchId: this.props.batchId,
+            studentId: this.props.studentId,
             [name] : value
         })
       };
+      
+      handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.addNewEvaluation(this.state)
+      }
 
-    render() {
+      render() {
+        const initialValues = this.props.initialValues || {}
 
         return(
             <form onSubmit={this.handleSubmit}>
                 <TextField
                     id='date'
                     name='date'
-                    label='Evaluation Date'
-                    value={this.state.date || ''}
+                    label='Date'
+                    value={this.state.date || initialValues.date }
                     onChange={this.handleChange}
                 />
                 <TextField
                     id='evaluation'
                     name='evaluation'
-                    label='Add an evaluation'
-                    value={this.state.evaluation || ''}
+                    label='Add evaluation'
+                    value={this.state.evaluation || initialValues.evaluation || ''}
                     onChange={this.handleChange}
-                  />
+                />
+                <p> (please only insert "green", "yellow" or "red" as evaluation <span>😉</span> )</p>
                 <TextField
                     id='remarks'
                     name='remarks'
                     label='Remarks'
-                    value={this.state.remarks || ''}
+                    value={this.state.remarks || initialValues.remarks || ''}
                     onChange={this.handleChange}
                 />
                 <Button
                     type='submit'
                     color="secondary"
                     variant="raised"
-                    className="addStudent"
+                    className="add-evaluation"
                 >
                     Add Evaluation
                 </Button>
@@ -68,7 +67,7 @@ const mapStateToProps = function (state) {
 	return {
         evaluations: state.evaluations,
         batch: state.batch,
-        students: state.students
+        student: state.student
 	}
 }
 

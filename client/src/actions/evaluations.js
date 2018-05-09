@@ -8,6 +8,7 @@ const baseUrl = 'http://localhost:4000'
 
 
 export const addNewEvaluation = (evaluation) => (dispatch) => {
+    console.log(evaluation)
     request
     .post(`${baseUrl}/evaluations`)
     .send(evaluation)

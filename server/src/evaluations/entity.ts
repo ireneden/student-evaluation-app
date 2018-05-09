@@ -7,10 +7,10 @@ export default class Evaluation extends BaseEntity {
   @PrimaryGeneratedColumn()
   id?: number
 
-  @Column('text', { nullable: false })
+  @Column('text', { nullable: true })
   studentId: number
 
-  @Column('text', { nullable: false })
+  @Column('text', { nullable: true })
   batchId: number
 
   @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})

@@ -10,20 +10,20 @@ import AddEvaluationForm from './AddEvaluationForm'
 class SingleStudentPage extends PureComponent {
 
     componentWillMount(){
-        this.props.getStudent(this.props.match.params.id)
         this.props.getEvaluations(this.props.match.params.id)
+        this.props.getStudent(this.props.match.params.id)
     }
 
     render(){
-        const {batch, students, evaluations} = this.props
+        const {evaluations, student} = this.props
 
         return(
             <Paper className="outer-paper">
-            <h1>{students.name}</h1>
-            <AddEvaluationForm />
+            <h1>Evaluations for student # {this.props.match.params.id}</h1>
+            <AddEvaluationForm studentId={this.props.match.params.id}/>
             { evaluations.map(evaluation =>
-                <div className= "evaluationsContainer">
-                <h2>{evaluation.date} : {evaluation.evaluation}</h2>
+                <div className= "evaluations">
+                <h2>Evaluation date: {evaluation.date} Evaluation: {evaluation.evaluation}</h2>
                 </div>
             )}
             </Paper>
@@ -32,8 +32,9 @@ class SingleStudentPage extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-    students: state.students,
-    evaluations: state.evaluations
+    student: state.student,
+    evaluations: state.evaluations,
+    batch: state.batch
 })
 
 export default connect (mapStateToProps, {getStudent, getEvaluations})(SingleStudentPage)
