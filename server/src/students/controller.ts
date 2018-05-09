@@ -18,7 +18,7 @@ export default class StudentController {
     getClassStudents(
         @Param('id') batchId: number
     ) {
-        let studentsByClass = Student.find( {batch: batchId} ) 
+        let studentsByClass = Student.find( {batchId: batchId} ) 
 
         return studentsByClass 
     }

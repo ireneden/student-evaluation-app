@@ -4,6 +4,8 @@ import classes from './classes'
 import currentUser from './currentUser'
 import login from './login'
 import students from './students'
+import evaluations from './evaluations'
+
 // import student from './students'
 
 
@@ -15,5 +17,6 @@ export default {
   signup,
   users,
   classes,
-  students
+  students,
+  evaluations
 }

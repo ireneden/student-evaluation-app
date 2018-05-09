@@ -8,13 +8,14 @@ import {Link} from 'react-router-dom'
 import AddStudentForm from './AddStudentForm'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button';
+import Card, {CardActions} from 'material-ui/Card';
 
 
 class SingleClassPage extends PureComponent {
 
     componentWillMount(){
         this.props.getStudents(this.props.match.params.id)
-        this.props.getClass(this.props.match.params.id)
+        this.props.getClass(this.props.match.params.batchNumber)
     }
 
     deleteStudent = (studentId) => {
@@ -26,7 +27,7 @@ class SingleClassPage extends PureComponent {
         return(
             <Paper className="outer-paper">
             <h2>Add a new student</h2>
-            <AddStudentForm onSubmit={this.props.addStudent} batchId={this.props.match.params.id}/>
+            <AddStudentForm onSubmit={this.props.addStudent} batchNumber={this.props.match.params.id}/>
             <h2>Students of batch # {this.props.match.params.id} </h2>
             { students.map(student =>
                 <div className= "classPage">
@@ -37,8 +38,20 @@ class SingleClassPage extends PureComponent {
                 color="secondary"
                 variant="raised"
                 className="delete-student"
-                onClick={() => this.deleteStudent(student.id)}>Delete Student
+                onClick={() => this.deleteStudent(student.id)}>DELETE Student
                 </Button>
+
+                <CardActions>
+                <Link to={`/students/${student.id}`}>
+                <Button
+                type='submit'
+                color="secondary"
+                variant="raised"
+                className="edit-student"
+                > EDIT Student
+                </Button> 
+                </Link>
+                </CardActions>
                 </div>
             )}
             </Paper>

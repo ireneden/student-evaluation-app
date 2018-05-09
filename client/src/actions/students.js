@@ -24,12 +24,12 @@ export const REMOVE_STUDENT = 'REMOVE_STUDENT'
       .catch(err => console.error(err))
   }
 
-  export const getStudents = (classId) => (dispatch, getState) => {
+  export const getStudents = (batchId) => (dispatch, getState) => {
     const state = getState()
     const jwt = state.currentUser.jwt
 
     request
-      .get(`${baseUrl}/studentsbyclass/${classId}`)
+      .get(`${baseUrl}/studentsbyclass/${batchId}`)
       .then(result => 
         dispatch({
           type: GET_STUDENTS,

@@ -16,7 +16,7 @@ export default class Student extends BaseEntity {
     picture: string
 
     @Column('text', { nullable: false })
-    batch: number
+    batchId: number
 
     @Column('text', { nullable: true })
     latestEvaluation: string
