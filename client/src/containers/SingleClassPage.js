@@ -21,19 +21,16 @@ class SingleClassPage extends PureComponent {
         this.props.deleteStudent(studentId)
     }
 
-   
-
     render(){
         const {batch, students} = this.props
         return(
-            <div>
             <Paper className="outer-paper">
             <h2>Add a new student</h2>
             <AddStudentForm batchId={this.props.match.params.id}/>
             <h2>Students of batch # {this.props.match.params.id} </h2>
             {students.map(student =>
                 <div className="students-list">
-                <Link to={`/students/${student.id}`}><h3>Student name: {student.name}</h3></Link>
+                <Link to={`/students/${student.id}`} ><h3>Student name: {student.name}</h3></Link>
                 <h4>Picture (url): {student.picture} - Last evaluation: {student.latestEvaluation}</h4>
                 <Button 
                 type='submit'
@@ -45,7 +42,6 @@ class SingleClassPage extends PureComponent {
                 </div>
             )}
             </Paper>
-            </div>
         )
     }
 }
