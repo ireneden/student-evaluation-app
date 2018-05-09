@@ -6,43 +6,34 @@ import {addNewEvaluation} from '../actions/evaluations'
 
 
 class AddEvaluationForm extends PureComponent {
-
     state = {}
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        this.props.addNewEvaluation(this.state)
-    }
-
-
-    handleChange = (e) => {
-        const {name, value} = e.target
-
+    handleChange = (event) => {
+        const {name, value} =event.target
         this.setState({
-            batch: this.props.batch.id,
-            students: this.props.students.id,
+            batchId: this.props.batchId,
+            studentId: this.props.studentId,
             [name] : value
         })
       };
+      
+      handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.addNewEvaluation(this.state)
+      }
 
-    render() {
+      render() {
 
         return(
             <form onSubmit={this.handleSubmit}>
                 <TextField
                     id='date'
                     name='date'
-                    label='Evaluation Date'
-                    value={this.state.date || ''}
+                    label='Date'
+                    value={this.state.date || '' }
                     onChange={this.handleChange}
                 />
-                <TextField
-                    id='evaluation'
-                    name='evaluation'
-                    label='Add an evaluation'
-                    value={this.state.evaluation || ''}
-                    onChange={this.handleChange}
-                  />
+
                 <TextField
                     id='remarks'
                     name='remarks'
@@ -50,11 +41,20 @@ class AddEvaluationForm extends PureComponent {
                     value={this.state.remarks || ''}
                     onChange={this.handleChange}
                 />
+
+                <label>
+                    Evaluation: 
+                    <select onChange={this.handleChange}>
+                    <option value="Green" name='evaluation'>Green</option>
+                    <option value="Yellow" name='evaluation'>Yellow</option>
+                    <option value="Red" name='evaluation'>Red</option>
+                    </select>
+                </label>
                 <Button
                     type='submit'
                     color="secondary"
                     variant="raised"
-                    className="addStudent"
+                    className="add-evaluation"
                 >
                     Add Evaluation
                 </Button>
@@ -62,13 +62,19 @@ class AddEvaluationForm extends PureComponent {
         )
     }
 }
-
+{/* <TextField
+                    id='evaluation'
+                    name='evaluation'
+                    label='Add evaluation'
+                    value={this.state.evaluation || ''}
+                    onChange={this.handleChange}
+                /> */}
 
 const mapStateToProps = function (state) {
 	return {
         evaluations: state.evaluations,
         batch: state.batch,
-        students: state.students
+        student: state.student
 	}
 }
 
