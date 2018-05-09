@@ -5,22 +5,22 @@ import TextField from 'material-ui/TextField'
 import {addStudent} from '../actions/students'
 
 
-export default class AddStudentForm extends PureComponent {
+export  class AddStudentForm extends PureComponent {
     state = {}
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.onSubmit(this.state)
+        this.props.addStudent(this.state)
     }
 
 
 
     handleChange = (event) => {
         const {name, value} = event.target
-        const {batchId} = this.props
 
         this.setState({
-          batch: batchId,
+          batchId: this.props.batchId,
+
           [name] : value
         })
       };
@@ -56,5 +56,10 @@ export default class AddStudentForm extends PureComponent {
         )
     }
 }
+const mapStateToProps = function (state) {
+	return {
+        batch: state.batch,
+	}
+}
 
-
+export default connect(mapStateToProps, {addStudent})(AddStudentForm)

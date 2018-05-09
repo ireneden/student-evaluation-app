@@ -10,19 +10,22 @@ export const GET_DETAILED_STUDENT = 'GET_DETAILED_STUDENT'
 export const REMOVE_STUDENT = 'REMOVE_STUDENT'
 
 
-    const newStudent = student => ({
-        type: ADD_STUDENT,
-        payload: student
-    })
 
   export const addStudent = (student) => (dispatch) => {
-      console.log(student)
+    console.log(student)
     request
-      .post(`${baseUrl}/students`)
-      .send(student)
-      .then(result => dispatch(newStudent(student)))
-      .catch(err => console.error(err))
-  }
+    .post(`${baseUrl}/students`)
+    .send(student)
+    .then(result => {
+        dispatch({
+            type: ADD_STUDENT,
+            payload: result.body
+        })
+    })
+    .catch(err => console.error(err))
+}
+
+
 
   export const getStudents = (batchId) => (dispatch, getState) => {
     const state = getState()

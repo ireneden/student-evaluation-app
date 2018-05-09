@@ -20,7 +20,7 @@ class AddEvaluationForm extends PureComponent {
 
         this.setState({
             batch: this.props.batch.id,
-            student: this.props.student.id,
+            students: this.props.students.id,
             [name] : value
         })
       };
@@ -68,7 +68,7 @@ const mapStateToProps = function (state) {
 	return {
         evaluations: state.evaluations,
         batch: state.batch,
-        student: state.student
+        students: state.students
 	}
 }
 
