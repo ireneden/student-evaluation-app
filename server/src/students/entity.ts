@@ -18,6 +18,6 @@ export default class Student extends BaseEntity {
     @Column('text', { nullable: true })
     batchId: number
 
-    @Column('text', { nullable: true })
+    @Column('text', { nullable: true, default: 'White'  })
     latestEvaluation: string
 }
