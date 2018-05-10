@@ -1,4 +1,4 @@
-import { Post, Param, HttpCode, Get, Body, JsonController, Patch, NotFoundError, Delete} from 'routing-controllers'
+import { Post, Param, HttpCode, Get, Body, JsonController, Put, NotFoundError, Delete} from 'routing-controllers'
 import Student from './entity';
 import * as request from 'superagent'
 
@@ -42,13 +42,13 @@ export default class StudentController {
       }
 
 
-    @Patch('/students/:id([0-9]+)')
+    @Put('/students/:id')
     async updateStudent(
         @Param('id') id: number,
         @Body() update: Partial<Student> 
     ) {
         const student = await Student.findOne(id)
-        if (!student) throw new NotFoundError('Student not found')
+        if (!student) throw new NotFoundError('Student was not found')
         const studentUpdated = Student.merge(student, update)
         const entity = await studentUpdated.save()
         return entity
@@ -59,7 +59,7 @@ export default class StudentController {
         @Param('id') id: number
     ) {
         const student = await Student.findOne(id)
-        if (!student) throw new NotFoundError('Student not found')
+        if (!student) throw new NotFoundError('Student was not found')
         if (student) Student.remove(student)
         return 'Student was deleted successfully'
     }

@@ -10,7 +10,7 @@ export const GET_STUDENTS = 'GET_STUDENTS'
 export const GET_DETAILED_STUDENT = 'GET_DETAILED_STUDENT'
 export const REMOVE_STUDENT = 'REMOVE_STUDENT'
 export const ADD_NEW_EVALUATION = 'ADD_NEW_EVALUATION'
-
+export const UPDATE_STUDENT = 'UPDATE_STUDENT'
 
 
 
@@ -53,6 +53,21 @@ export const ADD_NEW_EVALUATION = 'ADD_NEW_EVALUATION'
     })
     .catch(err => console.error(err))
 }
+
+export const updateStudent = (id, updates) => (dispatch) => {
+  console.log("console logging id and updates +" + id, updates)
+  request
+  .patch(`${baseUrl}/students/${id}`)
+  .send(updates)
+  .then(result => {
+  dispatch({
+    type: UPDATE_STUDENT,
+    payload: result.body
+  })
+})
+.catch(err => console.error(err))
+}
+
 
 export const deleteStudent = (id) => (dispatch) => {
     request

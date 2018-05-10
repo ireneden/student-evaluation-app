@@ -67,7 +67,7 @@ describe('chooseRandomStudent', () => {
         { student: 'student4', evaluation: 'White' },
     ]
 
-    it('returns the correct percentage of 1/4 per color', () => {
+    it('returns the correct percentage per color', () => {
       expect(calculateEvaluationsPercent(test)).toEqual({ greenStudents: "25.00", yellowStudents: "25.00", redStudents: "25.00", whiteStudents: "25.00" })
     })
   })

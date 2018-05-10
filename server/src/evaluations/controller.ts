@@ -14,16 +14,6 @@ export default class EvaluationController {
         return entity 
     }
 
-    @Put('/evaluations')
-    @HttpCode(201)
-    async addLatestEvaluation(
-        @Body() evaluation: Evaluation
-    ) {
-        const entity = await evaluation.save()
-
-        return entity 
-    }
-
     @Put('/evaluations/:id([0-9]+)')
     async updateEvaluation(
         @Param('id') id: number,
