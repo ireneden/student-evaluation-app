@@ -6,8 +6,6 @@ import {addNewEvaluation} from '../actions/evaluations'
 import {latestEvaluation} from '../actions/evaluations'
 
 
-
-
 class AddEvaluationForm extends PureComponent {
     state = {}
 
@@ -16,6 +14,7 @@ class AddEvaluationForm extends PureComponent {
         this.setState({
             batch: this.props.batchId,
             studentId: this.props.studentId,
+            evaluation: this.props.latestEvaluation,
             [name] : value
         })
       };
@@ -23,6 +22,7 @@ class AddEvaluationForm extends PureComponent {
       handleSubmit = (event) => {
         event.preventDefault()
         this.props.addNewEvaluation(this.state)
+        this.props.latestEvaluation(this.props.studentId, this.state) 
       }
 
       render() {
