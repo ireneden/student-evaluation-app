@@ -1,19 +1,42 @@
 const studentsArray = [
-  { student: 'student1', evaluation: 'green' },
-  { student: 'student2', evaluation: 'green' },
-  { student: 'student3', evaluation: 'yellow' },
-  { student: 'student4', evaluation: 'yellow' },
-  { student: 'student5', evaluation: 'yellow' },
-  { student: 'student6', evaluation: 'red' },
-  { student: 'student7', evaluation: 'red' },
-  { student: 'student8', evaluation: 'red' },
-  { student: 'student9', evaluation: 'red' },
+  { student: 'student1', evaluation: 'Green' },
+  { student: 'student2', evaluation: 'Green' },
+  { student: 'student3', evaluation: 'Yellow' },
+  { student: 'student4', evaluation: 'Yellow' },
+  { student: 'student5', evaluation: 'Yellow' },
+  { student: 'student6', evaluation: 'Red' },
+  { student: 'student7', evaluation: 'Red' },
+  { student: 'student8', evaluation: 'Red' },
+  { student: 'student9', evaluation: 'Red' },
 ]
 
+
+export function calculateEvaluationsPercent(studentsArray) {
+  const totalStudents = studentsArray.length
+  const greenStudentsOnly = studentsArray.filter(student => student.evaluation === 'Green').length
+  const yellowStudentsOnly = studentsArray.filter(student =>student.evaluation === 'Yellow').length
+  const redStudentsOnly = studentsArray.filter(student => student.evaluation === 'Red').length
+  const whiteStudentsOnly = studentsArray.filter(student => student.evaluation === 'White').length
+
+  let greenPercent = greenStudentsOnly/totalStudents
+  let yellowPercent = yellowStudentsOnly/totalStudents
+  let redPercent = redStudentsOnly/totalStudents
+  let whitePercent = whiteStudentsOnly/totalStudents
+
+  return {
+    greenStudents: greenPercent,
+    yellowStudents: yellowPercent,
+    redStudents: redPercent,
+    whiteStudents: whitePercent
+  }
+}
+
 export function chooseRandomStudent(studentsArray) {
-  const greenStudentsOnly = studentsArray.filter(student => student.evaluation === 'green')
-  const yellowStudentsOnly = studentsArray.filter(student =>student.evaluation === 'yellow')
-  const redStudentsOnly = studentsArray.filter(student => student.evaluation === 'red')
+  
+  const greenStudentsOnly = studentsArray.filter(student => student.evaluation === 'Green')
+  const yellowStudentsOnly = studentsArray.filter(student =>student.evaluation === 'Yellow')
+  const redStudentsOnly = studentsArray.filter(student => student.evaluation === 'Red')
+  const whiteStudentsOnly = studentsArray.filter(student => student.evaluation === 'White')
 
   const greenWeight = 0.19
   const yellowWeight = 0.28
