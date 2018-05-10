@@ -19,4 +19,3 @@ export default class Batch extends BaseEntity {
     endDate: Date
 }
 
-//commen

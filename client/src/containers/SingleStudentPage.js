@@ -5,6 +5,7 @@ import {getEvaluations} from '../actions/evaluations'
 import {Link} from 'react-router-dom'
 import Paper from 'material-ui/Paper'
 import AddEvaluationForm from './AddEvaluationForm'
+import {calculateEvaluationsPercent} from '../randomStudent'
 
 
 class SingleStudentPage extends PureComponent {
@@ -16,7 +17,6 @@ class SingleStudentPage extends PureComponent {
 
     render(){
         const {evaluations, student, batch} = this.props
-
         return(
             <div>
             <Paper className="outer-paper">
@@ -28,6 +28,9 @@ class SingleStudentPage extends PureComponent {
                 </div>
             )}
             </Paper>
+               <h3 className="greenPercentage"> Percentage of Green evaluations: {calculateEvaluationsPercent(this.props.evaluations).greenStudents} </h3>
+               <h3 className="yellowPercentage"> Percentage of Yellow evaluations: {calculateEvaluationsPercent(this.props.evaluations).yellowStudents} </h3>
+               <h3 className="redPercentage"> Percentage of Red evaluations: {calculateEvaluationsPercent(this.props.evaluations).redStudents} </h3>
             </div>
         )
     }

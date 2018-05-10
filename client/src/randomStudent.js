@@ -18,10 +18,10 @@ export function calculateEvaluationsPercent(studentsArray) {
   const redStudentsOnly = studentsArray.filter(student => student.evaluation === 'Red').length
   const whiteStudentsOnly = studentsArray.filter(student => student.evaluation === 'White').length
 
-  let greenPercent = greenStudentsOnly/totalStudents
-  let yellowPercent = yellowStudentsOnly/totalStudents
-  let redPercent = redStudentsOnly/totalStudents
-  let whitePercent = whiteStudentsOnly/totalStudents
+  let greenPercent = (greenStudentsOnly/totalStudents * 100).toFixed(2)
+  let yellowPercent = (yellowStudentsOnly/totalStudents * 100).toFixed(2)
+  let redPercent = (redStudentsOnly/totalStudents * 100).toFixed(2)
+  let whitePercent = (whiteStudentsOnly/totalStudents * 100).toFixed(2)
 
   return {
     greenStudents: greenPercent,
