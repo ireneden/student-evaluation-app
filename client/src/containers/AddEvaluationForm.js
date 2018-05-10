@@ -44,7 +44,7 @@ class AddEvaluationForm extends PureComponent {
 
                 <label>
                     Evaluation: 
-                    <select onChange={this.handleChange}>
+                    <select onChange={this.handleChange} name='evaluation'>
                     <option value="Green" name='evaluation'>Green</option>
                     <option value="Yellow" name='evaluation'>Yellow</option>
                     <option value="Red" name='evaluation'>Red</option>
