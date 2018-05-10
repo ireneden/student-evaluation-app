@@ -32,7 +32,6 @@ export function calculateEvaluationsPercent(studentsArray) {
 }
 
 export function chooseRandomStudent(studentsArray) {
-  
   const greenStudentsOnly = studentsArray.filter(student => student.evaluation === 'Green')
   const yellowStudentsOnly = studentsArray.filter(student =>student.evaluation === 'Yellow')
   const redStudentsOnly = studentsArray.filter(student => student.evaluation === 'Red')

@@ -40,6 +40,25 @@ describe('chooseRandomStudent', () => {
   })
 
 
+  describe('chooseRandomStudent', () => {
+    const test = [
+        { student: 'student1', evaluation: 'Green' },
+        { student: 'student2', evaluation: 'Green' },
+        { student: 'student3', evaluation: 'Yellow' },
+        { student: 'student4', evaluation: 'Yellow' },
+        { student: 'student5', evaluation: 'Yellow' },
+        { student: 'student6', evaluation: 'Red' },
+        { student: 'student7', evaluation: 'Red' },
+        { student: 'student8', evaluation: 'Red' },
+        { student: 'student9', evaluation: 'Red' },
+        { student: 'student9', evaluation: 'White' },
+      ]
+    it('returns an object', () => {
+      expect(chooseRandomStudent(test)).toBeObject
+    })
+  })
+
+
   describe('calculateEvaluationsPercent', () => {
     const test = [
         { student: 'student1', evaluation: 'Green' },
@@ -72,6 +91,7 @@ describe('chooseRandomStudent', () => {
     })
   })
 
+
   describe('yellowStudentsOnly', () => {
     const test = [
         { student: 'student1', evaluation: 'Green' },
@@ -89,6 +109,7 @@ describe('chooseRandomStudent', () => {
         expect(yellowStudentsOnly).toEqual([{ student: 'student3', evaluation: 'Yellow' },{ student: 'student4', evaluation: 'Yellow' },{ student: 'student5', evaluation: 'Yellow' }]);
     })
   })
+
 
   describe('redStudentsOnly', () => {
     const test = [
