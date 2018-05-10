@@ -20,7 +20,7 @@ class ClassesPage extends PureComponent {
             <h2>Add a new class</h2>
             <p>Please make sure to insert the date in MM/DD/YYYY or MM-DD-YYYY format</p>
             <ClassForm />
-            <h2>All classes: </h2>
+            <h1>All classes: </h1>
             { classes.map(classes =>
                 <div className= "classPage">
                 <Link to={`/classes/${classes.batchNumber}`}><h3>BATCH NUMBER {classes.batchNumber}  -   Start Date: {classes.startDate}  End Date: {classes.endDate}</h3></Link>

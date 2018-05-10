@@ -6,8 +6,6 @@ import {addNewEvaluation} from '../actions/evaluations'
 import {latestEvaluation} from '../actions/evaluations'
 
 
-
-
 class AddEvaluationForm extends PureComponent {
     state = {}
 
@@ -16,6 +14,7 @@ class AddEvaluationForm extends PureComponent {
         this.setState({
             batch: this.props.batchId,
             studentId: this.props.studentId,
+            evaluation: this.props.latestEvaluation,
             [name] : value
         })
       };
@@ -23,6 +22,7 @@ class AddEvaluationForm extends PureComponent {
       handleSubmit = (event) => {
         event.preventDefault()
         this.props.addNewEvaluation(this.state)
+        this.props.latestEvaluation(this.props.studentId, this.state) 
       }
 
       render() {
@@ -45,12 +45,12 @@ class AddEvaluationForm extends PureComponent {
                     onChange={this.handleChange}
                 />
 
-                <label>
+                <label className="evaluationLabel">
                     Evaluation: 
-                    <select onChange={this.handleChange} name='evaluation'>
-                    <option value="Green" name='evaluation'>Green</option>
-                    <option value="Yellow" name='evaluation'>Yellow</option>
-                    <option value="Red" name='evaluation'>Red</option>
+                    <select onChange={this.handleChange} name='evaluation' className="colors-selector">
+                    <option value="Green" name='evaluation' className="colors-options">Green</option>
+                    <option value="Yellow" name='evaluation' className="colors-options">Yellow</option>
+                    <option value="Red" name='evaluation' className="colors-options">Red</option>
                     </select>
                 </label>
                 <Button

@@ -57,7 +57,7 @@ export const UPDATE_STUDENT = 'UPDATE_STUDENT'
 export const updateStudent = (id, updates) => (dispatch) => {
   console.log("console logging id and updates +" + id, updates)
   request
-  .patch(`${baseUrl}/students/${id}`)
+  .put(`${baseUrl}/students/${id}`)
   .send(updates)
   .then(result => {
   dispatch({

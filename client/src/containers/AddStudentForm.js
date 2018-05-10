@@ -28,7 +28,7 @@ export class AddStudentForm extends PureComponent {
     render() {
 
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="addStudentForm">
                 <TextField
                     id='name'
                     name='name'

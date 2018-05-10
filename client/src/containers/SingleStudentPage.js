@@ -11,6 +11,7 @@ import {calculateEvaluationsPercent} from '../randomStudent'
 
 class SingleStudentPage extends PureComponent {
 
+
     componentWillMount(){
         this.props.getEvaluations(this.props.match.params.id)
         this.props.getStudent(this.props.match.params.id)
@@ -24,15 +25,18 @@ class SingleStudentPage extends PureComponent {
             <h1>Evaluations for student # {this.props.match.params.id}</h1>
             <AddEvaluationForm studentId={this.props.match.params.id} batchId={this.props.batchId} />
             <EditStudentForm studentId={this.props.match.params.id} />
+            <div className="colors-percentages">
+               <h3 className="greenPercentage"> Percentage of Green evaluations: {calculateEvaluationsPercent(this.props.evaluations).greenStudents} </h3>
+               <h3 className="yellowPercentage"> Percentage of Yellow evaluations: {calculateEvaluationsPercent(this.props.evaluations).yellowStudents} </h3>
+               <h3 className="redPercentage"> Percentage of Red evaluations: {calculateEvaluationsPercent(this.props.evaluations).redStudents} </h3>
+            </div>
             { evaluations.map(score =>
                 <div className= "evaluations" >
                 <h2>Evaluation date: {score.time} Evaluation: {score.evaluation}</h2>
                 </div>
             )}
             </Paper>
-               <h3 className="greenPercentage"> Percentage of Green evaluations: {calculateEvaluationsPercent(this.props.evaluations).greenStudents} </h3>
-               <h3 className="yellowPercentage"> Percentage of Yellow evaluations: {calculateEvaluationsPercent(this.props.evaluations).yellowStudents} </h3>
-               <h3 className="redPercentage"> Percentage of Red evaluations: {calculateEvaluationsPercent(this.props.evaluations).redStudents} </h3>
+            
             </div>
         )
     }
