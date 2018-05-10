@@ -17,9 +17,9 @@ class App extends Component {
       <Router>
         <div>
           <nav>
-            <TopBar />
+            <TopBar className="top-bar"/>
           </nav>
-          <main style={{marginTop:75}}>
+          <main style={{marginTop:100}} className="mainContainer">
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />

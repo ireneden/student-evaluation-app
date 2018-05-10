@@ -34,7 +34,8 @@ class SingleClassPage extends PureComponent {
             {students.map(student =>
                 <div className="students-list">
                 <Link to={`/students/${student.id}`} ><h3>Student name: {student.name}</h3></Link>
-                <h4>Picture (url): {student.picture} - Last evaluation: {student.latestEvaluation}</h4>
+                <h4><img className="students-pictures" src = {student.picture} /></h4>
+                <h4>Last evaluation: {student.latestEvaluation}</h4>
                 <Button 
                 type='submit'
                 color="secondary"
@@ -42,6 +43,7 @@ class SingleClassPage extends PureComponent {
                 className="delete-student"
                 onClick={() => this.deleteStudent(student.id)}>Delete Student
                 </Button>
+                <p>_______________________________________________________________</p>
                 </div>
             )}
             </Paper>
