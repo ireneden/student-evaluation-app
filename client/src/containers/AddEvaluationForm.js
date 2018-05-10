@@ -11,7 +11,7 @@ class AddEvaluationForm extends PureComponent {
     handleChange = (event) => {
         const {name, value} =event.target
         this.setState({
-            batchId: this.props.batchId,
+            batch: this.props.batchId,
             studentId: this.props.studentId,
             [name] : value
         })
@@ -27,10 +27,10 @@ class AddEvaluationForm extends PureComponent {
         return(
             <form onSubmit={this.handleSubmit}>
                 <TextField
-                    id='date'
-                    name='date'
+                    id='time'
+                    name='time'
                     label='Date'
-                    value={this.state.date || '' }
+                    value={this.state.time || '' }
                     onChange={this.handleChange}
                 />
 
@@ -62,13 +62,6 @@ class AddEvaluationForm extends PureComponent {
         )
     }
 }
-{/* <TextField
-                    id='evaluation'
-                    name='evaluation'
-                    label='Add evaluation'
-                    value={this.state.evaluation || ''}
-                    onChange={this.handleChange}
-                /> */}
 
 const mapStateToProps = function (state) {
 	return {
