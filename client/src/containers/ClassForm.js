@@ -25,7 +25,7 @@ class ClassForm extends PureComponent {
     render() {
 
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="addClassForm">
                 <TextField
                     id='batch'
                     name='batchNumber'
