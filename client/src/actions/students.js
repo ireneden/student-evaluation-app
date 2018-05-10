@@ -2,12 +2,15 @@ import * as request from 'superagent'
 import {logout} from './users'
 import {isExpired} from '../jwt'
 
+
 const baseUrl = 'http://localhost:4000'
 
 export const ADD_STUDENT = 'ADD_STUDENT'
 export const GET_STUDENTS = 'GET_STUDENTS'
 export const GET_DETAILED_STUDENT = 'GET_DETAILED_STUDENT'
 export const REMOVE_STUDENT = 'REMOVE_STUDENT'
+export const ADD_NEW_EVALUATION = 'ADD_NEW_EVALUATION'
+
 
 
 
@@ -24,8 +27,6 @@ export const REMOVE_STUDENT = 'REMOVE_STUDENT'
     })
     .catch(err => console.error(err))
 }
-
-
 
   export const getStudents = (batchId) => (dispatch, getState) => {
     const state = getState()

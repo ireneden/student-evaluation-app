@@ -14,6 +14,16 @@ export default class EvaluationController {
         return entity 
     }
 
+    @Put('/evaluations')
+    @HttpCode(201)
+    async addLatestEvaluation(
+        @Body() evaluation: Evaluation
+    ) {
+        const entity = await evaluation.save()
+
+        return entity 
+    }
+
     @Put('/evaluations/:id([0-9]+)')
     async updateEvaluation(
         @Param('id') id: number,
@@ -51,7 +61,6 @@ export default class EvaluationController {
         @Param('id') studentId: number
     ) {
         let evaluationsByStudent = Evaluation.find( {studentId: studentId} ) 
-
         return evaluationsByStudent 
     }
 
@@ -66,4 +75,4 @@ export default class EvaluationController {
         Evaluation.remove(evaluation)
         return 'Evaluation deleted successfully'
     }
-}
+}  

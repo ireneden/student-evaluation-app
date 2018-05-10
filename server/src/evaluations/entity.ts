@@ -16,7 +16,7 @@ export default class Evaluation extends BaseEntity {
   @Column({ type: "date", default: () => "CURRENT_DATE"})
   time: string;
 
-  @Column('text', { nullable: false })
+  @Column('text', { nullable: false, default: 'White'  })
   evaluation: string
 
   @Column('text', { nullable: true })

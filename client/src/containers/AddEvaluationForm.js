@@ -5,13 +5,14 @@ import TextField from 'material-ui/TextField'
 import {addNewEvaluation} from '../actions/evaluations'
 
 
+
 class AddEvaluationForm extends PureComponent {
     state = {}
 
     handleChange = (event) => {
         const {name, value} =event.target
         this.setState({
-            batchId: this.props.batchId,
+            batch: this.props.batchId,
             studentId: this.props.studentId,
             [name] : value
         })
@@ -27,10 +28,10 @@ class AddEvaluationForm extends PureComponent {
         return(
             <form onSubmit={this.handleSubmit}>
                 <TextField
-                    id='date'
-                    name='date'
+                    id='time'
+                    name='time'
                     label='Date'
-                    value={this.state.date || '' }
+                    value={this.state.time || '' }
                     onChange={this.handleChange}
                 />
 
@@ -44,7 +45,7 @@ class AddEvaluationForm extends PureComponent {
 
                 <label>
                     Evaluation: 
-                    <select onChange={this.handleChange}>
+                    <select onChange={this.handleChange} name='evaluation'>
                     <option value="Green" name='evaluation'>Green</option>
                     <option value="Yellow" name='evaluation'>Yellow</option>
                     <option value="Red" name='evaluation'>Red</option>
@@ -62,13 +63,6 @@ class AddEvaluationForm extends PureComponent {
         )
     }
 }
-{/* <TextField
-                    id='evaluation'
-                    name='evaluation'
-                    label='Add evaluation'
-                    value={this.state.evaluation || ''}
-                    onChange={this.handleChange}
-                /> */}
 
 const mapStateToProps = function (state) {
 	return {
