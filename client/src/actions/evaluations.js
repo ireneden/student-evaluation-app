@@ -3,6 +3,8 @@ import * as request from 'superagent'
 
 export const ADD_NEW_EVALUATION = 'ADD_NEW_EVALUATION'
 export const GET_EVALUATIONS = 'GET_EVALUATIONS'
+export const LATEST_EVALUATION = 'LATEST_EVALUATION'
+
 
 const baseUrl = 'http://localhost:4000'
 
@@ -34,4 +36,16 @@ export const getEvaluations = (studentId) => (dispatch) => {
     .catch(err => console.error(err))
 }
 
-
+export const latestEvaluation = (studentId, update) => (dispatch) => {
+    request
+      .put(`${baseUrl}/students/${studentId}`)
+      .send({latestEvaluation: update.evaluation})
+      .then(result => {
+        dispatch({
+          type: LATEST_EVALUATION,
+          payload: result.body
+        })
+      })
+      .catch(err => console.error(err))
+  
+  }

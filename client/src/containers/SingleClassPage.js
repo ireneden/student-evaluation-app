@@ -7,7 +7,9 @@ import {deleteStudent} from '../actions/students'
 import {Link} from 'react-router-dom'
 import AddStudentForm from './AddStudentForm'
 import Paper from 'material-ui/Paper'
-import Button from 'material-ui/Button';
+import Button from 'material-ui/Button'
+import {calculateEvaluationsPercent} from '../randomStudent'
+
 
 
 class SingleClassPage extends PureComponent {
@@ -22,8 +24,9 @@ class SingleClassPage extends PureComponent {
     }
 
     render(){
-        const {batch, students} = this.props
+        const {batch, students, evaluations} = this.props
         return(
+            <div>
             <Paper className="outer-paper">
             <h2>Add a new student</h2>
             <AddStudentForm batchId={this.props.match.params.id}/>
@@ -42,13 +45,18 @@ class SingleClassPage extends PureComponent {
                 </div>
             )}
             </Paper>
+            {/* <h3 className="greenPercentage"> Percentage of Green evaluations: {calculateEvaluationsPercent(this.props.students.evaluations).greenStudents} </h3>
+               <h3 className="yellowPercentage"> Percentage of Yellow evaluations: {calculateEvaluationsPercent(this.props.students.evaluations).yellowStudents} </h3> */}
+               {/* <h3 className="redPercentage"> Percentage of Red evaluations: {calculateEvaluationsPercent(this.props.students.evaluations).redStudents} </h3> */}
+            </div>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
     students: state.students,
-    batch: state.batch
+    batch: state.batch,
+    evaluations: state.evaluations
 })
 
 export default connect (mapStateToProps, {getStudents, getClass, deleteStudent})(SingleClassPage)

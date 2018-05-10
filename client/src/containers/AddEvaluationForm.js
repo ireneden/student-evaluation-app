@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField'
 import {addNewEvaluation} from '../actions/evaluations'
+import {latestEvaluation} from '../actions/evaluations'
+
 
 
 
@@ -72,4 +74,4 @@ const mapStateToProps = function (state) {
 	}
 }
 
-export default connect(mapStateToProps, {addNewEvaluation})(AddEvaluationForm)
+export default connect(mapStateToProps, {addNewEvaluation, latestEvaluation})(AddEvaluationForm)

@@ -5,7 +5,7 @@ import TextField from 'material-ui/TextField'
 import {addStudent} from '../actions/students'
 
 
-export  class AddStudentForm extends PureComponent {
+export class AddStudentForm extends PureComponent {
     state = {}
 
     handleSubmit = (event) => {

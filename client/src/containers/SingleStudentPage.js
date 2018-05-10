@@ -5,6 +5,7 @@ import {getEvaluations} from '../actions/evaluations'
 import {Link} from 'react-router-dom'
 import Paper from 'material-ui/Paper'
 import AddEvaluationForm from './AddEvaluationForm'
+import EditStudentForm from './EditStudentForm'
 import {calculateEvaluationsPercent} from '../randomStudent'
 
 
@@ -22,6 +23,7 @@ class SingleStudentPage extends PureComponent {
             <Paper className="outer-paper">
             <h1>Evaluations for student # {this.props.match.params.id}</h1>
             <AddEvaluationForm studentId={this.props.match.params.id} batchId={this.props.batchId} />
+            <EditStudentForm studentId={this.props.match.params.id} />
             { evaluations.map(score =>
                 <div className= "evaluations" >
                 <h2>Evaluation date: {score.time} Evaluation: {score.evaluation}</h2>

@@ -1,5 +1,6 @@
-import {GET_DETAILED_STUDENT} from '../actions/students'
-import {ADD_NEW_EVALUATION} from '../actions/students'
+import {GET_DETAILED_STUDENT, UPDATE_STUDENT} from '../actions/students'
+import {LATEST_EVALUATION} from '../actions/evaluations'
+
 
 
 
@@ -8,15 +9,11 @@ export default function (state = {}, {type, payload}) {
 		case GET_DETAILED_STUDENT:
 			return payload
 
-		default:
-      return state
-	}
-}
-
-export default function (state = {}, {type, payload}) {
-	switch (type) {
-		case ADD_NEW_EVALUATION:
+		case UPDATE_STUDENT:
 			return payload
+
+		case LATEST_EVALUATION:
+            return {...state, latestEvaluation: payload.latestEvaluation}
 
 		default:
       return state
