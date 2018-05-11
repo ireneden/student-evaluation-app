@@ -32,7 +32,7 @@ export function calculateEvaluationsPercent(studentsArray) {
   }
 }
 
-export function chooseRandomStudent(studentsArray) {
+export function chooseRandomStudent(students) {
 
   const greenWeight = 0.19
   const yellowWeight = 0.28
@@ -41,15 +41,17 @@ export function chooseRandomStudent(studentsArray) {
   let colours=""
   const randomColor = Math.random()
   if (randomColor <= greenWeight) {
-  return colours="green"
+   colours="Green"
   } else if (randomColor < greenWeight + yellowWeight) {
-  return colours="yellow"
+   colours="Yellow"
   } else {
-  return colours="red"
+   colours="Red"
   }
 
-  let students = students.filter(student => student.latestEvaluation === colours) 
-  let randomStudent = students[Math.floor(Math.random()*students.length)]
+  let studentArray = students.filter(student => student.latestEvaluation === colours) 
+  // console.log(studentArray)
+  let randomStudent = studentArray[Math.floor(Math.random()*students.length)]
+  if (randomStudent === undefined) return null
   return randomStudent
 }
 

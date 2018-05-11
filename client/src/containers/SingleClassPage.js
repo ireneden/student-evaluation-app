@@ -32,7 +32,7 @@ class SingleClassPage extends PureComponent {
         return(
             <div>
             <Paper className="outer-paper">
-            <RandomStudent students={this.props}/>
+            <RandomStudent students={this.props.students}/>
             <h2 className="addStudent"> Add a new student</h2>
             <AddStudentForm batchId={this.props.match.params.id}/>
             <h1>Students of batch # {this.props.match.params.id} </h1>
