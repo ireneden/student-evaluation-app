@@ -6,7 +6,9 @@ import login from './login'
 import students from './students'
 import evaluations from './evaluations'
 import batch from './batch'
-// import student from './students'
+import student from './students'
+import randomStudent from './randomStudent'
+
 
 
 export default {
@@ -17,5 +19,7 @@ export default {
   classes,
   students,
   evaluations,
-  batch
+  batch,
+  student,
+  randomStudent
 }

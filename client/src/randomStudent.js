@@ -12,6 +12,7 @@ const studentsArray = [
 
 
 export function calculateEvaluationsPercent(studentsArray) {
+
   const totalStudents = studentsArray.length
   const greenStudentsOnly = studentsArray.filter(student => student.evaluation === 'Green').length
   const yellowStudentsOnly = studentsArray.filter(student =>student.evaluation === 'Yellow').length
@@ -32,22 +33,26 @@ export function calculateEvaluationsPercent(studentsArray) {
 }
 
 export function chooseRandomStudent(studentsArray) {
-  const greenStudentsOnly = studentsArray.filter(student => student.evaluation === 'Green')
-  const yellowStudentsOnly = studentsArray.filter(student =>student.evaluation === 'Yellow')
-  const redStudentsOnly = studentsArray.filter(student => student.evaluation === 'Red')
-  const whiteStudentsOnly = studentsArray.filter(student => student.evaluation === 'White')
 
   const greenWeight = 0.19
   const yellowWeight = 0.28
   const redWeight = 0.53
   
-  const randomNumber = Math.random()
-  if (randomNumber <= greenWeight) {
-  return greenStudentsOnly[Math.floor(Math.random() * greenStudentsOnly.length)]
-  } else if (randomNumber < greenWeight + yellowWeight) {
-  return yellowStudentsOnly[Math.floor(Math.random() * yellowStudentsOnly.length)]
+  let colours=""
+  const randomColor = Math.random()
+  if (randomColor <= greenWeight) {
+  return colours="green"
+  } else if (randomColor < greenWeight + yellowWeight) {
+  return colours="yellow"
   } else {
-  return redStudentsOnly[Math.floor(Math.random() * redStudentsOnly.length)]
+  return colours="red"
   }
+
+  let students = students.filter(student => student.latestEvaluation === colours) 
+  let randomStudent = students[Math.floor(Math.random()*students.length)]
+  return randomStudent
 }
+
+
+
 
