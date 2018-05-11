@@ -50,10 +50,10 @@ class SingleClassPage extends PureComponent {
         
         return(
             <div>
-                <div>
-                    {percent.greenStudents ? <span style={{backgroundColor: 'green', margin: 5}}>{percent.greenStudents}%</span>: null}
-                    {percent.yellowStudents ? <span style={{backgroundColor: 'yellow', margin: 5}}>{percent.yellowStudents}%</span>: null}
-                    {percent.redStudents ? <span style={{backgroundColor: 'red', margin: 5}}>{percent.redStudents}%</span>: null}
+                <div className="colorsBatch">
+                    {percent.greenStudents ? <span style={{backgroundColor: 'green', margin: 5, padding: 10}}>{percent.greenStudents}%</span>: null}
+                    {percent.yellowStudents ? <span style={{backgroundColor: 'yellow', margin: 5, padding: 10}}>{percent.yellowStudents}%</span>: null}
+                    {percent.redStudents ? <span style={{backgroundColor: 'red', margin: 5, padding: 10}}>{percent.redStudents}%</span>: null}
                 </div>
             <Paper className="outer-paper">
             <RandomStudent students={this.props.students}/>
