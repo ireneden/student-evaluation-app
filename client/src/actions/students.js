@@ -11,6 +11,7 @@ export const GET_DETAILED_STUDENT = 'GET_DETAILED_STUDENT'
 export const REMOVE_STUDENT = 'REMOVE_STUDENT'
 export const ADD_NEW_EVALUATION = 'ADD_NEW_EVALUATION'
 export const UPDATE_STUDENT = 'UPDATE_STUDENT'
+export const RANDOMIZE_STUDENT = 'RANDOMIZE_STUDENT'
 
 
 
@@ -77,3 +78,8 @@ export const deleteStudent = (id) => (dispatch) => {
         payload: id
       }))
   }
+
+  export const randomizeStudents = (student) => ({
+    type: RANDOMIZE_STUDENT,
+    payload: student
+  })

@@ -6,6 +6,7 @@ import {addStudent} from '../actions/students'
 import {deleteStudent} from '../actions/students'
 import {Link} from 'react-router-dom'
 import AddStudentForm from './AddStudentForm'
+import RandomStudent from './RandomStudentButton'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
 import {calculateEvaluationsPercent} from '../randomStudent'
@@ -26,12 +27,13 @@ class SingleClassPage extends PureComponent {
     render(){
 
         const {batch, students, evaluations} = this.props
-        console.log(this.props.students)
+        console.log("console logging this props students +" + this.props.students)
         
         return(
             <div>
             <Paper className="outer-paper">
-            <h2>Add a new student</h2>
+            <RandomStudent students={this.props}/>
+            <h2 className="addStudent"> Add a new student</h2>
             <AddStudentForm batchId={this.props.match.params.id}/>
             <h1>Students of batch # {this.props.match.params.id} </h1>
             {students.map(student =>

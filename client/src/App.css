@@ -106,3 +106,11 @@
 .addClassForm {
   margin-bottom: 50px;
 }
+
+.chooseRandomStudent .Button {
+  border: 1px dotted #f3f3f3;
+}
+
+.addStudent {
+  margin-top: 50px;
+}
