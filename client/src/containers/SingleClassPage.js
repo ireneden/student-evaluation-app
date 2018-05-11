@@ -9,10 +9,28 @@ import AddStudentForm from './AddStudentForm'
 import RandomStudent from './RandomStudentButton'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
-import {calculateEvaluationsPercent} from '../randomStudent'
+// import {calculateEvaluationsPercent} from '../randomStudent'
 
+function calculateEvaluationsPercent(studentsArray) {
 
-
+    const totalStudents = studentsArray.length
+    const greenStudentsOnly = studentsArray.filter(student => student.latestEvaluation === 'Green').length
+    const yellowStudentsOnly = studentsArray.filter(student =>student.latestEvaluation === 'Yellow').length
+    const redStudentsOnly = studentsArray.filter(student => student.latestEvaluation === 'Red').length
+    const whiteStudentsOnly = studentsArray.filter(student => student.latestEvaluation === 'White').length
+  
+    let greenPercent = (greenStudentsOnly/totalStudents * 100).toFixed(2)
+    let yellowPercent = (yellowStudentsOnly/totalStudents * 100).toFixed(2)
+    let redPercent = (redStudentsOnly/totalStudents * 100).toFixed(2)
+    let whitePercent = (whiteStudentsOnly/totalStudents * 100).toFixed(2)
+  
+    return {
+      greenStudents: greenPercent,
+      yellowStudents: yellowPercent,
+      redStudents: redPercent,
+      whiteStudents: whitePercent
+    }
+  }
 class SingleClassPage extends PureComponent {
 
     componentWillMount(){
@@ -28,9 +46,15 @@ class SingleClassPage extends PureComponent {
 
         const {batch, students, evaluations} = this.props
         console.log("console logging this props students +" + this.props.students)
+        const percent = calculateEvaluationsPercent(students)
         
         return(
             <div>
+                <div>
+                    {percent.greenStudents ? <span style={{backgroundColor: 'green', margin: 5}}>{percent.greenStudents}%</span>: null}
+                    {percent.yellowStudents ? <span style={{backgroundColor: 'yellow', margin: 5}}>{percent.yellowStudents}%</span>: null}
+                    {percent.redStudents ? <span style={{backgroundColor: 'red', margin: 5}}>{percent.redStudents}%</span>: null}
+                </div>
             <Paper className="outer-paper">
             <RandomStudent students={this.props.students}/>
             <h2 className="addStudent"> Add a new student</h2>
