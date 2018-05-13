@@ -75,6 +75,7 @@
   padding: 10px 50px;
   margin-right: 45%;
   margin-bottom: 40px;
+  margin-top: 50px;
 }
 
 .editForm {
@@ -113,4 +114,8 @@
 
 .addStudent {
   margin-top: 50px;
+}
+
+.colorsBatch {
+  margin-bottom: 30px;
 }

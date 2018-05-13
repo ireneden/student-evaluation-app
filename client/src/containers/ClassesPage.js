@@ -18,7 +18,7 @@ class ClassesPage extends PureComponent {
         return(
             <Paper className="outer-paper">
             <h2>Add a new class</h2>
-            <p>Please make sure to insert the date in MM/DD/YYYY or MM-DD-YYYY format</p>
+            <p>Please make sure to insert the date in MM/DD/YYYY format</p>
             <ClassForm />
             <h1>All classes: </h1>
             { classes.map(classes =>

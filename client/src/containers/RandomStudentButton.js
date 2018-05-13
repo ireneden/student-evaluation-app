@@ -4,17 +4,19 @@ import Button from 'material-ui/Button'
 import Paper from 'material-ui/Paper'
 import {chooseRandomStudent} from '../randomStudent.js'
 import {randomizeStudents} from '../actions/students'
+import randomStudent from '../reducers/randomStudent.js';
 
 export  class RandomStudent extends PureComponent {
 
     randomizeStudents = (students) => {
         this.props.randomizeStudents(chooseRandomStudent(students))
         console.log(students)
-      }
+        console.log(chooseRandomStudent(students))
+      }    
 
     render(){
-        const {students} = this.props
-        console.log("console logging students.name" + students.name)
+        const {students, randomStudent} = this.props
+        console.log("console logging students.name", students)
 
         return(
             <div>
@@ -23,8 +25,10 @@ export  class RandomStudent extends PureComponent {
             color="primary"
             variant="raised"
             className ="chooseRandomStudent"
-            onClick = {() => this.randomizeStudents(chooseRandomStudent(students))}
+            onClick = {() => this.randomizeStudents(students)}
             >Choose a random student!</Button>
+            {randomStudent !== null && <p>{randomStudent.name}</p>}
+            <p></p>
             </div>
         )
     }
@@ -32,7 +36,8 @@ export  class RandomStudent extends PureComponent {
 
 const mapStateToProps = function (state) {
 	return {
-        students: state.students
+        students: state.students,
+        randomStudent: state.randomStudent
 	}
 }
 
