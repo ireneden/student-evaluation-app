@@ -15,12 +15,12 @@ const newClass = batch => ({
 
   export const addClass = (batch) => (dispatch, getState) => {
     const state = getState()
-    const jwt = state.currentUser.jwt
+    // const jwt = state.currentUser.jwt
 
     request
       .post(`${baseUrl}/classes`)
       .send(batch)
-      .set('Authorization', `Bearer ${jwt}`)
+      // .set('Authorization', `Bearer ${jwt}`)
       .then(result => dispatch(newClass(batch)))
       .catch(err => console.error(err))
   }

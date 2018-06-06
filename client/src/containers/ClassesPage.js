@@ -14,7 +14,7 @@ class ClassesPage extends PureComponent {
     render(){
         const {classes} = this.props
         const {currentUser} = this.props
-        if (this.props.currentUser)
+        // if (this.props.currentUser)
         return(
             <Paper className="outer-paper">
             <h2>Add a new class</h2>
