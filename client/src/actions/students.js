@@ -31,7 +31,7 @@ export const RANDOMIZE_STUDENT = 'RANDOMIZE_STUDENT'
 
   export const getStudents = (batchId) => (dispatch, getState) => {
     const state = getState()
-    const jwt = state.currentUser.jwt
+    // const jwt = state.currentUser.jwt
 
     request
       .get(`${baseUrl}/studentsbyclass/${batchId}`)
